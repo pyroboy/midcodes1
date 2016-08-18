@@ -1,0 +1,94 @@
+/*
+    ScrollMenu v 1.0.2
+    Author: Sudhanshu Yadav
+    Copyright (c) 2015 to Sudhanshu Yadav - ignitersworld.com , released under the MIT license.
+    Demo on: http://ignitersworld.com/lab/scrollmenu/
+*/
+
+/** scroller menu css **/
+
+
+
+.scroller-container {
+
+}
+.content-wrapper {
+
+  left: 0;
+  top: 0;
+
+}
+
+/** CHECK THIS SHIT*/
+.content-inner-wrapper {
+  width: 100%;
+  position: relative;
+}
+
+.scroll-menu-wrapper {
+  position: absolute;
+}
+.scroll-anchor {
+  cursor: pointer;
+  position: relative;
+}
+.scroll-handle-wrap {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  overflow: hidden;
+  background: #ccc;
+   z-index:9999
+}
+.scroll-menu-dragging * {
+  cursor: -webkit-grabbing !important;
+  cursor: -moz-grabbing !important;
+  cursor: grabbing !important;
+}
+.scroll-handle {
+  background: #082202;
+  position: absolute;
+  cursor: -webkit-grab;
+  cursor: -moz-grab;
+  cursor: grab;
+  opacity: 0.7;
+}
+/*** scroll menu content ***/
+.scroll-menu-content {
+  position: absolute;
+  -webkit-transition: all ease 300ms;
+  -moz-transition: all ease 300ms;
+  -o-transition: all ease 300ms;
+  transition: all ease 300ms;
+  overflow: hidden;
+}
+/*** for vertical scroll menu ***/
+.scroll-menu-wrapper.vertical {
+  top: 53%;
+  -webkit-transform: translateY(-50%);
+  -moz-transform: translateY(-50%);
+  -o-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+  height: 100%;
+  right: 3px;
+
+}
+.scroll-menu-wrapper.vertical .scroll-anchor {
+  width: 20px;
+}
+.scroll-menu-wrapper.vertical .scroll-handle {
+  width: 100%;
+   z-index:9999
+}
+.scroll-menu-wrapper.vertical .scroll-menu-content {
+  right: 10px;
+  height: 100%;
+  width: 0;
+}
+.scroll-menu-wrapper.vertical .scroll-menu-content.hovered {
+  width: 50px;
+   z-index:9999
+}

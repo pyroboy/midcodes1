@@ -1,0 +1,91 @@
+/**** container css ****/
+body {
+  color: white;
+  font-family: helvetica, arial, 'lucida grande', sans-serif;
+}
+
+
+
+
+/*** sections css ***/
+.section {
+  min-height: 85vh;
+  padding: 30px;
+
+}
+.section-hero{
+  min-height: 85vh;
+
+}
+.content {
+  font-size: 32px;
+  line-height: 36px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  -moz-transform: translate(-50%, -50%);
+  -o-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+}
+#section1 {
+  background: #d24d57;
+}
+#section2 {
+  background: #27ae60;
+}
+#section3 {
+  background: #1ba39c;
+}
+#section4 {
+  background: #6c7a89;
+}
+#section5 {
+  background: #16a085;
+}
+/* sections end */
+
+
+
+/*** scroll menu css ***/
+.scroll-menu-content .menu-wrap {
+  display: table;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+.scroll-menu-content .menu {
+  display: table-cell;
+  color: white;
+  text-align: center;
+  vertical-align: middle;
+  white-space: nowrap;
+  font-size: 18px;
+  line-height: 22px;
+}
+/*** scroll menu css end***/
+
+/*** horizontal menu demo css ***/
+#header {
+  display: none;
+  padding: 0 20px;
+}
+.horizontal-menu-page #header {
+  height: 60px;
+  position: fixed;
+  display: block;
+  top: 0;
+  width: 100%;
+  z-index: 100;
+  background: white;
+  color: #333333;
+  border-bottom: 2px solid #333333;
+}
+.horizontal-menu-page #scrollWrapper {
+  height: auto;
+  width: 100%;
+  top: 60px;
+  position: absolute;
+  bottom: 0;
+}

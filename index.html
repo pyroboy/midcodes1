@@ -1,0 +1,156 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <!--
+    Demo by Ildar Sagdejev ( http://twitter.com/tknomad )
+  -->
+  <meta charset="UTF-8">
+  <title>Cloud 9 Carousel: JS / HTML5 / CSS3</title>
+  <link rel="stylesheet" href="css/common.css">
+  <style>
+    a {
+      color: #da2020;
+    }
+    a:hover {
+      color: #d6f300;
+    }
+    .wrap > h1 {
+      margin: 26px auto;
+    }
+    #showcase {
+      height: 460px;
+      background: #000000;
+    }
+    #item-title {
+      color: #F31414;
+      font-size: 29px;
+      letter-spacing: 0.13em;
+      text-shadow: 1px 1px 6px #C72B2B;
+      text-align: center;
+      margin-top: 30px;
+      margin-bottom: 22px;
+    }
+    #nav {
+      text-align: center;
+    }
+    #nav > button {
+      width: 64px;
+      height: 36px;
+      color: #666;
+      font: bold 16px arial;
+      text-align: center;
+      margin: 5px;
+      text-shadow: 0px 1px 0px #f5f5f5;
+      background: #000;
+      border: solid 2px rgba(0, 0, 0, 0.4);
+      -webkit-border-radius: 5px;
+      -moz-border-radius: 5px;
+      border-radius: 5px;
+      -webkit-box-shadow: 0 0 9px 1px rgba(0, 0, 0, 0.4);
+      -moz-box-shadow: 0 0 9px 1px rgba(0, 0, 0, 0.4);
+      box-shadow: 0 0 9px 1px rgba(0, 0, 0, 0.4);
+      cursor: pointer;
+    }
+    #nav > button:active,
+    #nav > button.down {
+      background: #dfdfdf;
+      border: solid 2px rgba(0, 0, 0, 0.6);
+      box-shadow: none;
+    }
+    #share {
+      top: -9px;
+    }
+    #credits {
+      top: -15px;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="wrap">
+    <h1> </h1>
+    <div id="showcase" class="noselect">
+      <img class="cloud9-item" src="images/young.png" alt="Firefox">
+      <img class="cloud9-item" src="images/young 2.png" alt="Wyzo">
+      <img class="cloud9-item" src="images/cee.png" alt="Opera">
+      <img class="cloud9-item" src="images/browsers/chrome.png" alt="Chrome">
+      <img class="cloud9-item" src="images/browsers/iexplore.png" alt="Internet Explorer">
+      <img class="cloud9-item" src="images/browsers/safari.png" alt="Safari">
+    </div>
+    <footer>
+	      <div id="nav" class="noselect">
+        <button class="left">
+          ←
+        </button>
+        <button class="right">
+          →
+        </button>
+      </div>
+     <!-- <p id="item-title">&nbsp;</p>
+
+-->
+
+    </footer>
+  </div>
+  <script src="js/lib/jquery.js"></script>
+  <script src="js/lib/jquery.reflection.js"></script>
+  <script src="js/lib/jquery.cloud9carousel.js"></script>
+  <script>
+    $(function() {
+      var showcase = $("#showcase"), title = $('#item-title')
+
+      showcase.Cloud9Carousel( {
+        yOrigin: 42,
+        yRadius: 48,
+        mirror: {
+          gap: 12,
+          height: 0.2
+        },
+        buttonLeft: $("#nav > .left"),
+        buttonRight: $("#nav > .right"),
+        autoPlay: 1,
+        bringToFront: true,
+        onRendered: rendered,
+        onLoaded: function() {
+          showcase.css( 'visibility', 'visible' )
+          showcase.css( 'display', 'none' )
+          showcase.fadeIn( 1500 )
+        }
+      } )
+
+      function rendered( carousel ) {
+        title.text( carousel.nearestItem().element.alt )
+
+        // Fade in based on proximity of the item
+        var c = Math.cos((carousel.floatIndex() % 1) * 2 * Math.PI)
+        title.css('opacity', 0.5 + (0.5 * c))
+      }
+
+      //
+      // Simulate physical button click effect
+      //
+      $('#nav > button').click( function( e ) {
+        var b = $(e.target).addClass( 'down' )
+        setTimeout( function() { b.removeClass( 'down' ) }, 80 )
+      } )
+
+      $(document).keydown( function( e ) {
+        //
+        // More codes: http://www.javascripter.net/faq/keycodes.htm
+        //
+        switch( e.keyCode ) {
+          /* left arrow */
+          case 37:
+            $('#nav > .left').click()
+            break
+
+          /* right arrow */
+          case 39:
+            $('#nav > .right').click()
+        }
+      } )
+    })
+  </script>
+
+</body>
+</html>
